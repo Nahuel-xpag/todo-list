@@ -1,6 +1,11 @@
 import { compareAsc, format } from "date-fns";
+import './style.css';
+import projectUi, { renderAddNew } from "./ui.js";
+import { renderProject, renderToDo } from "./ui.js";
+import { addNew } from "./addnew.js";
 
-class Project {
+
+export class Project {
     constructor(name){
         this.name = name
     }
@@ -27,9 +32,11 @@ class Project {
         })
     }
 };
+//declare default project before to do class 
+const defaultProject = new Project('Default Project');
+export const todoArr = [];
 
-const defaultProject = new Project('default project');
-class ToDo {
+export class ToDo {
     status = 'in progress';
     constructor(title, description, dueDate, priority){
         this.title = title;
@@ -37,6 +44,7 @@ class ToDo {
         this.dueDate = format( new Date(dueDate), 'dd-MM-yyyy');
         this.priority = priority;
         defaultProject.addToDo(this);
+        todoArr.push(this);
     }
     addToProject(project){
         project.addToDo(this)
@@ -52,7 +60,9 @@ class ToDo {
         
     }
     finished() {
-        this.status = 'completed';
+        if (this.status == 'in progress') {
+            this.status = 'completed'}
+        else this.status = 'in progress';
     }
     changePriority(prio) {
         this.priority = prio;
@@ -62,19 +72,16 @@ class ToDo {
 
 const walkTheDog = new ToDo('Walk the dog',
  'take the dog for a walk in the park', '2023, 10, 17', 2);
-
-
-
 const walkTheCat = new ToDo('walk the cat', 'take the cat for a walk in the park',
 '2023, 10, 18', 1);
-
 const walkTheTurtle = new ToDo('Walk the turtle',
  'take the turtle for a walk in the park', '2023, 10, 17', 3);
+ const walkTheHamster = new ToDo('Walk the hamster',
+ 'take the hamster for a walk in the park', '2023, 10, 17', 3);
 
-const testProject = new Project('Walk pets');
-testProject.addToDo(walkTheDog);
-testProject.addToDo(walkTheCat);
-testProject.addToDo(walkTheTurtle);
-testProject.print();
-testProject.removeToDo(walkTheTurtle);
-testProject.print();
+defaultProject.print();
+renderToDo(walkTheDog);
+projectUi(defaultProject);
+renderAddNew().project();
+renderAddNew().todo();
+

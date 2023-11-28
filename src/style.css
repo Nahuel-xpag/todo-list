@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.header {
+    flex-shrink: 1;
+    min-height: 150px;
+    font-size: 3.5rem;
+    color: rgb(231, 230, 229);
+    box-shadow: 0px 15px 10px -15px #111;
+    background-color: rgb(51, 5, 47);
+}
+
+.content {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 2fr  1fr;
+    grid-template-rows: 1fr  4fr;
+    box-shadow: 0px 0px 10px 0px rgb(140, 133, 236);
+    background-color: rgb(199, 200, 240);
+}
+
+.subheader {
+    grid-column: 1 / 3;
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-div {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 3%;
+
+}
+
+.todo-div {
+ grid-column: 2 / 3;
+ grid-row: 2 / 3;
+}
+
+.card {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: start;
+    border-left: 15px solid rgb(179, 133, 236);
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 5px rgba(179, 180, 180, 0.781);
+    overflow: auto;
+}
+
+.card h2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.card li {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.todo-div {
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.todo-card {
+    padding: 1rem;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: start;
+    border-left: 10px solid rgb(83, 32, 30);
+    border-radius: 12px;
+    background-color: #dfdede;
+    box-shadow: 5px 5px 5px 5px rgba(179, 180, 180, 0.781);
+    overflow: auto;
+}
+
+.add-new-project-card {
+    border-left: 8px solid rgb(179, 133, 236);
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 5px rgba(179, 180, 180, 0.781);
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    width: 50%;
+    align-items: center;
+    overflow: auto;
+}
+
+.add-new-project-card:hover {
+    background-color: #e7dddd;
+    cursor: pointer;
+}
+
+.add-new-project-card h2, .add-new-project-card img {
+    height: 50px;
+    width: 50px;
+    font-size: 1rem;
+}
+
+.add-new-todo-card {
+    border-left: 8px solid rgb(83, 32, 30);
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 5px rgba(179, 180, 180, 0.781);
+    height: 20%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: auto;
+}
+
+.add-new-todo-card:hover {
+    background-color: #e7dddd;
+    cursor: pointer;
+}
+
+.add-new-todo-card h2, .add-new-todo-card img {
+    height: 50px;
+    width: 50px;
+    font-size: 1rem;
+}
+
